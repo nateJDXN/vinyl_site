@@ -1,0 +1,41 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to the shop</title>
+        <link href ="static/cart.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <form class="home-button" action="/store">
+                    <button type="submit">Home</button>
+                </form>
+                <form class="user-button" action="/logout">
+                    <button type="submit">Log Out</button>
+                </form>
+            </div>
+        </header>
+        <div class = "cart">
+            {% for item in cart %}
+            <div class="cart-product">
+                <img src={{ item['image'] }}>
+                <h3> {{ item['name'] }}</h3>
+                <p> ${{ item['price'] }}
+                <p> {{ item['quantity'] }}</p>
+                <form class="delete" action="/delete" method="POST">
+                    <input type="hidden" name="product_name" value="{{ item['name'] }}"/>                    <button>
+                        <span class="delete-button"> Delete </span>
+                    </button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+    <form class="checkout" action="/checkout" method="POST">
+        <button>
+            <span class="checkout-button"> Check Out! </span>
+        </button>
+    </form>
+</html>

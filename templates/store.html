@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to the shop</title>
+        <link href ="static/store.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <form class="home-button" action="/store">
+                    <button type="submit">Home</button>
+                </form>
+                <form class="search-field" action="/store" method="POST">
+                    <div class="search-input">
+                        <label>
+                            <input type="text" name="search-query"/>
+                            <span>Search</span>
+                        </label>
+                    </div>
+                </form>
+                <form class="cart-button" action="/cart">
+                    <button type="submit">Cart</button>
+                </form>
+                {% if session['loggedin'] == False %}
+                    <form class="user-button" action="/login">
+                        <button type="submit">Log In / Sign Up</button>
+                    </form>
+                {% elif session['loggedin'] == True %}
+                    <form class="user-button" action="/logout">
+                        <button type="submit">Log Out</button>
+                    </form>
+                {% endif %}
+            </div>
+        </header>
+        <div class = "store">
+            {% for product in rows %}
+            <div class="product">
+                <img src={{ product['image'] }}>
+                <h3> {{ product['name'] }}</h3>
+                <h3> {{ product['artist'] }}</h3>
+                <p> ${{ product['price'] }}</p>
+                <p> {{ product['quantity'] }}</p>
+                {% if in_stock[loop.index - 1] == True and product['quantity'] > 0 %}
+                    <form class="add-to-cart" action="/cart" method="POST">
+                        <input type="hidden" name="product_name" value="{{ product['name'] }}"/>
+                        <button>
+                            <span class="add-to-cart-button"> Add to Cart </span>
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

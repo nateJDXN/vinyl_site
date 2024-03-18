@@ -1,0 +1,145 @@
+button { 
+    all: unset;
+}
+
+html, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    background-color: #EEEDEB;
+}
+
+header {
+    background-color: #3C3633;
+    color: #E0CCBE;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.home-button button, .search-field, .cart-button button, .user-button button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.search-field {
+    width: auto;
+}
+
+.search-field label {
+    color: #3C3633;
+    border: 1px solid #747264;
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-width: 268px;
+    height: 38px;
+    background: #E0CCBE;
+    border-radius: 3px;
+}
+
+.search-field span {
+    position: absolute;
+    text-overflow: ellipsis;
+    transform-origin: left;
+    font-size: 12px;
+    left: 8px;
+    pointer-events: none;
+    transition: transform ease-out .1s
+}
+
+.search-field input {
+    width: 100%;
+    background: inherit;
+    border: 0;
+    outline: none;
+    padding: 9px 8px 7px 8px;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.search-field input:valid+span {
+    transform: scale(calc(10 / 12)) translateY(-10px);
+}
+
+.search-field input:valid {
+    padding: 14px 0 2px 8px;
+    font-size: 12px;
+}
+
+.store {
+    padding: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product {
+    display: flex;
+    padding: 10px; 
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    align-self: flex-end;
+    max-width: 220px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    background: #e0e0e0;
+    box-shadow:  10px 10px 20px #a4a4a4,
+                 -10px -10px 20px #ffffff;
+    margin: 20px;
+}
+
+button {
+    --button-radius: 0.25em;
+    --button-color: #E0CCBE;
+    --button-outline-color: #3C3633;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    padding: 0;
+    border-radius: var(--button-radius);
+    background: var(--button-outline-color);
+}
+
+.add-to-cart-button {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button-outline-color);
+    border-radius: var(--button-radius);
+    background: var(--button-color);
+    color: var(--button-outline-color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+}
+
+button:hover .add-to-cart-button {
+    transform: translateY(-0.33em)
+}
+
+button:active .add-to-cart-button {
+    transform: translateY(0);
+}
+

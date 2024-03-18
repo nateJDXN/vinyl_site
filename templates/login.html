@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link href="/static/login.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <img class = "logo" src="assets/record-logo.png">
+        <form class="content__form" action="/login" method="POST">
+          <div class="content__inputs">
+            <label>
+              <input required="" type="text" name="username"/>
+              <span>Username</span>
+            </label>
+            <label>
+              <input required="" type="password" name="password" />
+              <span>Password</span>
+            </label>
+          </div>
+          <button>Log In</button>
+        </form>
+        <div class="content__or-text">
+          <span></span>
+          <span>OR</span>
+          <span></span>
+        </div>
+        <br>
+        <div class="content__form">
+            <form class="content__form">
+                <button"><a href="/signup" style="color: inherit;">Sign up</a></button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
